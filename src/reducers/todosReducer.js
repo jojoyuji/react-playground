@@ -1,5 +1,5 @@
 export default function reducer(state = {
-    todos: [],
+  todos: [],
     fetching: false,
     fetched: false,
     error: null,
@@ -30,12 +30,11 @@ export default function reducer(state = {
     case 'ADD_TODO': {
       return {
         ...state,
-        todos: [...state.todos, action.payload]
+        todos: [...state.todos, {text: action.payload, completed: false}]
       }
     }
+    default:
+    break;
   }
-
-
   return state;
-
 }
