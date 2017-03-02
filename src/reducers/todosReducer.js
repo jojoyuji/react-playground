@@ -1,40 +1,51 @@
-export default function reducer(state = {
+import Immutable from 'immutable';
+import _ from 'lodash';
+const initialState = {
   todos: [],
-    fetching: false,
-    fetched: false,
-    error: null,
-  }, action
+  fetching: false,
+  fetched: false,
+  error: null,
+};
+
+export default function reducer(state = initialState, action
 ) {
+  state = Immutable.fromJS(state);
+
   switch (action.type) {
-    case 'FETCH_TODOS': {
-      return {
-        ...state,
-        fetching: true
-      };
+    case 'FETCH_TODOS_PENDING': {
+      return state.set('fetching', true).toJS();
     }
     case 'FETCH_TODOS_REJECT': {
-      return {
-        ...state,
-        fetching: false,
-        error: action.payload
-      };
+
+      return state
+        .set('fetching', false)
+        .set('error', action.payload)
+        .toJS();
     }
     case 'FETCH_TODOS_FULFILLED': {
-      return {
-        ...state,
-        fetching: false,
-        fetched: true,
-        todos: action.payload
-      };
+      return state
+        .set('fetching', false)
+        .set('fetched', true)
+        .set('todos', action.payload)
+        .toJS();
     }
     case 'ADD_TODO': {
-      return {
-        ...state,
-        todos: [...state.todos, {text: action.payload, completed: false}]
-      }
+      return state
+        .set('fetching', false)
+        .set('fetched', true)
+        .set('todos', state.get('todos').unshift({
+          title: action.payload,
+          completed: false
+        }))
+        .toJS();
+    }
+    case 'TOGGLE_TODO': {
+      let index = _.findIndex(state.get('todos').toJS(), (t) => (t.id === action.payload));
+      let actualValue = state.get('todos').toJS()[index].completed;
+      return state.setIn(['todos', index, 'completed'], !actualValue).toJS();
     }
     default:
-    break;
+      break;
   }
   return state;
 }
