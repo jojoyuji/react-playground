@@ -1,52 +1,14 @@
 {
   "todos": [
     {
-      "id": "1",
-      "title": "Meu titulo aqui",
-      "completed": false
+      "title": "Hello!",
+      "completed": false,
+      "id": 1
     },
     {
-      "id": "BJdxH-Bcx",
-      "title": "hello",
-      "completed": false
-    },
-    {
-      "id": "r1QHBbB9l",
-      "title": "Outro aqui",
-      "completed": false
-    },
-    {
-      "id": "B1rSSWr5x",
-      "title": "HAHAHAHAHA",
-      "completed": false
-    },
-    {
-      "id": "rkaHSbr5l",
-      "title": "Oh yeah!",
-      "completed": false
-    },
-    {
-      "id": "H18LB-r5e",
-      "title": "estamos indo até que bem :)D",
-      "completed": true
-    },
-    {
-      "id": "r15tSZH9l",
-      "title": "AEHIUAHEUIAHIUAE",
-      "completed": true
-    },
-    {
-      "id": "HJq5r-r9l",
-      "title": "Meu todo list está mandando as paradenhas corretamente :D",
-      "completed": true
-    },
-    {
-      "id": "HyxUabSqx",
-      "completed": false
-    },
-    {
-      "id": "BJp7CWS9x",
-      "completed": false
+      "title": "Meu texto vem aqui agora",
+      "completed": false,
+      "id": 2
     }
   ]
 }

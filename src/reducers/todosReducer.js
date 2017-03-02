@@ -42,7 +42,11 @@ export default function reducer(state = initialState, action
     case 'TOGGLE_TODO': {
       let index = _.findIndex(state.get('todos').toJS(), (t) => (t.id === action.payload));
       let actualValue = state.get('todos').toJS()[index].completed;
-      return state.setIn(['todos', index, 'completed'], !actualValue).toJS();
+      return state.setIn(['todos', index, 'completed'],
+      !actualValue).toJS();
+    }
+    case 'DELETE_TODO': {
+      return state.set('todos', state.get('todos').filter(o => o.get('id') !== action.payload)).toJS();
     }
     default:
       break;

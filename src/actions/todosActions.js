@@ -21,7 +21,7 @@ export function fetchTodos() {
       .then((data) => _.reverse(data.data))
   };
 }
-export function toggleTodo({ id, completed, title }) {
+export function toggleTodo({id, completed, title}) {
   axios.put(baseURL + '/todos/' + id, {
     id,
     title,
@@ -33,4 +33,10 @@ export function toggleTodo({ id, completed, title }) {
   }
 }
 
-
+export function deleteTodo(id) {
+  axios.delete(baseURL + '/todos/' + id);
+  return {
+    type: 'DELETE_TODO',
+    payload: id
+  }
+}
