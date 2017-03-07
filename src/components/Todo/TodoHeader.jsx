@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import RaisedButton from 'material-ui/RaisedButton';
-import { addTodo } from '../actions/todosActions'
+import { addTodo } from '../../actions/todosActions'
 
 class TodoHeader extends React.Component {
   render() {

@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import { toggleTodo, deleteTodo } from '../actions/todosActions';
+import { toggleTodo, deleteTodo } from '../../actions/todosActions';
 
 import { ListItem } from 'material-ui/List';
 import Checkbox from 'material-ui/Checkbox';
 import Divider from 'material-ui/Divider';
-import { grey400, darkBlack, lightBlack } from 'material-ui/styles/colors';
+import { grey400 } from 'material-ui/styles/colors';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import IconMenu from 'material-ui/IconMenu';

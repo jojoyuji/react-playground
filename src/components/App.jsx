@@ -1,55 +1,48 @@
+import classnames from 'classnames';
 import React, { PropTypes } from 'react';
-import TodoHeader from './TodoHeader';
-import TodoListItem from './TodoListItem';
 import { connect } from 'react-redux';
-import { fetchTodos } from '../actions/todosActions'
-import _ from 'lodash';
+import { Link } from 'react-router';
 
 import 'normalize.css';
+import './App.css' ;
 
-import CircularProgress from 'material-ui/CircularProgress';
+import { AppBar, Drawer } from 'material-ui';
+import Todo from './Todo/Todo';
+
+import { toggleMenu } from '../actions/appActions';
 
 class App extends React.Component {
-  componentWillMount() {
-    this.props.dispatch(fetchTodos())
+  handleToggle() {
+    this.props.dispatch(toggleMenu());
   }
-  renderList() {
-    if (this.props.fetching) {
-      return (
-   <CircularProgress />
-        )
-    } else if (this.props.error) {
-      return (
-        <span>ops... Happened an error :(</span>
-        );
-    }
-    return _.map(this.props.todos, function(t, index) {
-      return <TodoListItem key={index} id={ t.id } completed={ t.completed } title={ t.title } />;
-    });
-  }
-
   render() {
     return (
       <div>
-          <TodoHeader />
-          { this.renderList() }
+      <AppBar className={ classnames('app-bar', { 'expanded': this.props.isMenuOpen }) } onLeftIconButtonTouchTap={ this.handleToggle.bind(this) }
+      title="Experimental TODO app + material-ui and Redux" />
+        <Drawer docked={ true } open={ this.props.isMenuOpen } >
+          <ul>
+            <li><Link to="/" >Home</Link></li>
+            <li><Link to="/hello">hello</Link></li>
+          </ul>
+
+
+        </Drawer>
+        <div className={classnames('app-content', {'expanded': this.props.isMenuOpen})}>
+        {this.props.children || <Todo />}
+        </div>
       </div>
       );
   }
 }
 App.propTypes = {
-  fetching: PropTypes.any,
-  error: PropTypes.any,
-  todos: PropTypes.any,
-  dispatch: PropTypes.func,
+  isMenuOpen: PropTypes.any,
+  //dispatch: PropTypes.func,
 };
 
 
 export default connect((store) => {
   return {
-    todos: store.todos.todos,
-    fetched: store.todos.fetched,
-    fetching: store.todos.fetching,
-    error: store.todos.error,
+    isMenuOpen: store.app.isMenuOpen,
   }
 })(App);

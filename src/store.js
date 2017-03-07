@@ -12,4 +12,6 @@ const middleware = applyMiddleware(
   logger()
 );
 
-export default createStore(reducer, middleware);
+const store = createStore(reducer, middleware);
+
+export default store;
