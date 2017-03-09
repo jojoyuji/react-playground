@@ -18,7 +18,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
-ReactDOM.render(
+let app = (
   <Provider store={ store }>
     <MuiThemeProvider>
       <Router history={ browserHistory }>
@@ -31,6 +31,22 @@ ReactDOM.render(
         </Route>
       </Router>
     </MuiThemeProvider>
-  </Provider>,
+  </Provider>
+  )
+
+if(process.env.NODE_ENV !== 'production'){
+
+  let ReactPerfTool = require('react-perf-tool');
+  let Perf = require('react-addons-perf');
+  window.Perf = Perf;
+  app = (<div>
+  {app}
+  <ReactPerfTool perf={Perf}/>
+  </div>);
+
+}
+
+ReactDOM.render(
+  app,
   document.getElementById('root')
 );
