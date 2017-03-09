@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import { toggleTodo, deleteTodo } from '../../actions/todosActions';
+import { toggleTodo, deleteTodo } from '../../actions/todoActions';
 
 import { ListItem } from 'material-ui/List';
 import Checkbox from 'material-ui/Checkbox';
@@ -32,7 +32,8 @@ class TodoListItem extends React.Component {
     </IconMenu>
     );
     return (
-      <div key={ this.props.id }>
+
+      <div>
       <ListItem leftCheckbox={ <Checkbox ref="checkbox" onCheck={ this.toggleCheckbox.bind(this) } checked={ this.props.completed } /> }
       primaryText={ this.props.title }
       secondaryText="Allow notifications"

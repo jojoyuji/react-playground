@@ -12,17 +12,16 @@ export default function reducer(state = initialState, action
   state = Immutable.fromJS(state);
 
   switch (action.type) {
-    case 'FETCH_TODOS_PENDING': {
+    case 'TODOS_REQ_DATA': {
       return state.set('fetching', true).toJS();
     }
     case 'FETCH_TODOS_REJECT': {
-
       return state
         .set('fetching', false)
         .set('error', action.payload)
         .toJS();
     }
-    case 'FETCH_TODOS_FULFILLED': {
+    case 'TODOS_RECV_DATA': {
       return state
         .set('fetching', false)
         .set('fetched', true)
@@ -43,7 +42,7 @@ export default function reducer(state = initialState, action
       let index = _.findIndex(state.get('todos').toJS(), (t) => (t.id === action.payload));
       let actualValue = state.get('todos').toJS()[index].completed;
       return state.setIn(['todos', index, 'completed'],
-      !actualValue).toJS();
+        !actualValue).toJS();
     }
     case 'DELETE_TODO': {
       return state.set('todos', state.get('todos').filter(o => o.get('id') !== action.payload)).toJS();

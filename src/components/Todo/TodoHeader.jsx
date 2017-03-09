@@ -2,12 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import RaisedButton from 'material-ui/RaisedButton';
-import { addTodo } from '../../actions/todosActions'
+import { addTodo } from '../../actions/todoActions'
 
 class TodoHeader extends React.Component {
   render() {
     return (
-      <form onSubmit={ this.addTodo.bind(this) }>
+      <form className="margin" onSubmit={ this.addTodo.bind(this) }>
         <input type="text" ref="todoInput" />
         <RaisedButton type="submit" label="Criar" primary={true} />
       </form>

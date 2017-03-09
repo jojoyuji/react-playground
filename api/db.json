@@ -51,11 +51,6 @@
       "id": 10
     },
     {
-      "title": "dasdas",
-      "completed": false,
-      "id": 11
-    },
-    {
       "title": "da",
       "completed": false,
       "id": 12
@@ -66,54 +61,34 @@
       "id": 13
     },
     {
+      "id": 14,
       "title": "das",
-      "completed": false,
-      "id": 14
-    },
-    {
-      "title": "das",
-      "completed": false,
-      "id": 15
-    },
-    {
-      "title": "dsa",
-      "completed": false,
-      "id": 16
-    },
-    {
-      "id": 17,
-      "title": "d",
-      "completed": true
-    },
-    {
-      "id": 18,
-      "title": "asd",
-      "completed": true
-    },
-    {
-      "id": 19,
-      "title": "OI!",
-      "completed": true
-    },
-    {
-      "id": 20,
-      "title": "hahaha",
       "completed": false
     },
     {
-      "id": 21,
-      "title": "hello",
+      "id": 23,
+      "title": "yo",
       "completed": false
     },
     {
-      "id": 22,
-      "title": "nice man!",
+      "id": 24,
+      "title": "very nice stuff huh?",
       "completed": false
     },
     {
       "title": "hello",
       "completed": false,
-      "id": 23
+      "id": 25
+    },
+    {
+      "title": "another one",
+      "completed": false,
+      "id": 26
+    },
+    {
+      "title": ":)D",
+      "completed": false,
+      "id": 27
     }
   ]
 }
