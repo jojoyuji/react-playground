@@ -7,8 +7,7 @@ const initialState = {
   error: null,
 };
 
-export default function reducer(state = initialState, action
-) {
+export default function reducer(state = initialState, action) {
   state = Immutable.fromJS(state);
 
   switch (action.type) {
